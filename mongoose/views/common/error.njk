@@ -1,0 +1,6 @@
+{% extends "templates/layout.njk" %}
+{% block content %}
+    <h1>{{message}}</h1>
+    <h2>{{error.status}}</h2>
+    <h5>{{error.stack}}</h5>
+{% endblock %}

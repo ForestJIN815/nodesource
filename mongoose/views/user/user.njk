@@ -1,0 +1,84 @@
+{% extends "templates/layout.njk" %}
+{% block content %}
+    <div class="container">
+        <h4>사용자 등록</h4>
+        <form action="" method="post" id="user-form">
+            <div class="mb-3">
+                <label for="name" class="form-label">이름</label>
+                <input type="text" class="form-control" id="name" aria-describedby="name" name="name">                
+            </div>
+            <div class="mb-3">
+                <label for="age" class="form-label">나이</label>
+                <input type="text" class="form-control" id="age" aria-describedby="age" name="age">          
+            </div>
+            <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="married" name="married">
+                <label class="form-check-label" for="exampleCheck1">결혼여부</label>
+            </div>
+            <button type="submit" class="btn btn-primary">등록</button>
+        </form>
+
+        {# 목록 #}
+        <h4 class="mt-3">사용자 목록</h4>
+        <table class="table" id="user-list">
+            <thead>
+                <tr>
+                <th scope="col">아이디</th>
+                <th scope="col">이름</th>
+                <th scope="col">나이</th>
+                <th scope="col">결혼여부</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                <tr>
+                    <th scope="row">{{user.id}}</th>
+                    <td><a href="{{user.id}}">{{user.name}}</a></td>
+                    <td>{{user.age}}</td>
+                    <td>{{ '기혼' if user.married else '미혼'}}</td>
+                </tr>                    
+                {% endfor %}
+            </tbody>
+            </table>
+        {# 댓글등록 #}
+        <h4 class="mt-3">댓글 등록</h4>
+        <form action="" method="post" id="comment-form">
+            <div class="mb-3">
+                <label for="name" class="form-label">사용자 아이디</label>
+                <input type="text" class="form-control" id="userid" name="userid">                
+            </div>
+             <div class="mb-3">
+                <label for="comment" class="form-label">댓글</label>
+                <input type="text" class="form-control" id="comment" name="comment">                
+            </div>
+            <button type="submit" class="btn btn-success">댓글 등록</button>
+        </form>
+
+        {# 댓글목록 #}
+        <h4 class="mt-3">댓글 목록</h4>
+        <table class="table" id="comment-list">
+            <thead>
+                <tr>
+                <th scope="col">아이디</th>
+                <th scope="col">작성자</th>
+                <th scope="col">댓글</th>
+                <th scope="col">수정</th>
+                <th scope="col">삭제</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row"></th>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>   
+            </tbody>
+            </table>
+    </div>
+{% endblock %}
+{% block script %}
+    <script src="https://unpkg.com/axios@1.6.7/dist/axios.min.js"></script>
+    <script src="/js/user.js"></script>
+{% endblock %}

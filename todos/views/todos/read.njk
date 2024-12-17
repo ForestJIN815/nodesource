@@ -1,0 +1,50 @@
+{% extends "templates/layout.njk" %}
+{% block style %}  
+{% endblock %}  
+{% block content %}
+  <main  class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+    <!-- content 영역 -->
+    <div class="container">
+      <h1>{{title}}</h1>
+      <div class="card">
+        <div class="card-header">Todo 보기</div>
+        <div class="card-body">
+          <form action="" method="post">
+            <div class="mb-3">
+              <label for="title" class="form-label">할 일</label>
+              <textarea name="title" id="title" class="form-control" rows="5" readonly>{{todo.title}}</textarea>
+            </div>
+            <div class="mb-3 form-check">
+              <input
+                type="checkbox"
+                class="form-check-input"
+                id="important"
+                name="important"                
+                disabled
+                {{ 'checked' if todo.important else ''}}
+              />
+              <label class="form-check-label" for="important">중요</label>
+            </div>
+            <div class="mb-3 form-check">
+              <input
+                type="checkbox"
+                class="form-check-input"
+                id="completed"
+                name="completed"              
+                disabled
+                 {{ 'checked' if todo.completed else ''}}    
+              />
+              <label class="form-check-label" for="completed">완료</label>
+            </div>                     
+            <a class="btn btn-success" href="/todos/modify/{{todo._id}}">수정</a>
+            <a class="btn btn-primary" href="/todos">목록</a>
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+{% endblock %}
+
+{% block script %}
+  
+{% endblock %}

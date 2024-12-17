@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% include "header.njk" %}
+    <h1>INDEX - {{title}}</h1>
+    <p>Welcome to {{title}}</p>
+    <input type="text" name="" id="" placeholder="{{title}}">
+    <a href="/user">user</a>
+    {# 내부에 변수 설정 #}
+    {% set node = 'Node.js'  %}
+    {% set js = 'JavaScript' %}
+    <p>{{node}}와 {{js}}</p>
+    {% set fruits = ['사과','배','오렌지','바나나','복숭아'] %}
+    <ul>
+       {% for item in fruits %}
+            <li>{{loop.index}}: {{item}}</li>
+       {% endfor %}
+
+       {% set isLoggedIn = true  %}
+       {% if isLoggedIn %}
+            <div>로그아웃</div>
+       {% else %}
+            <div>로그인</div>
+       {% endif %}
+    </ul>
+    {% include "footer.njk" %}
+</body>
+</html>

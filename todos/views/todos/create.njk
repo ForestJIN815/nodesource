@@ -1,0 +1,42 @@
+{% extends "templates/layout.njk" %}
+{% block style %}
+  
+{% endblock %}  
+
+{% block content %}
+  <main layout:fragment="content" class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+    <!-- content 영역 -->
+    <div class="card mt-5">
+      <div class="card-header">Todo 생성</div>
+      <div class="card-body">
+        <form method="post">
+          <div class="mb-3">
+            <label for="title" class="form-label">할 일</label>
+            <textarea
+              name="title"
+              id="title"
+              class="form-control"
+              rows="5"
+            ></textarea>
+          </div>
+          <div class="mb-3 form-check">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              id="important"
+              name="important"
+              value="true"
+            />
+            <label class="form-check-label" for="important">중요</label>
+          </div>
+          <button class="btn btn-success">추가</button>
+          <a class="btn btn-primary" th:href="@{list}">목록</a>
+        </form>
+      </div>
+    </div>
+  </main>
+{% endblock %}
+
+{% block script %}
+  
+{% endblock %}

@@ -1,0 +1,68 @@
+{% extends "templates/layout.njk" %}
+{% block content %}    
+    <div class="chatbox my-5">
+        <div class="modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="msg-head">
+                    <div class="row">
+                        <div class="col-8">
+                            <div class="d-flex align-items-center">                                
+                                <div class="flex-shrink-0">
+                                    <img src="/img/mms_20.png" class="img-fluid" style="width:40px;height:40px;vertical-align:top">
+                                </div>
+                                <div class="flex-grow-1 ms-3">
+                                <h3>Sol Chat</h3>
+                                <p>상대방을 존중해 주세요</p>
+                                </div>
+                            </div>
+                        </div>                     
+                    </div>
+                </div>
+
+                <div class="modal-body  border-bottom">
+                    <div class="msg-body overflow-auto" style="height:550px">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">채팅방명</th>
+                                    <th scope="col">종류</th>
+                                    <th scope="col">허용인원</th>
+                                    <th scope="col">방장</th>
+                                    <th scope="col">입장</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>노드스터디</td>
+                                    <td>공개방</td>
+                                    <td>2</td>
+                                    <td>#10234558</td>
+                                    <td><a href="" class="btn btn-sm btn-outline-success">입장</a></td>
+                                </tr>                               
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="my-4 mx-2">
+                    <form  class="row gx-2 justify-content-center">                            
+                        <div class="col-md-5">
+                            <input type="text" name="title" class="form-control" placeholder="방 제목(20자까지 가능합니다.)" maxlength="20"/>
+                        </div>
+                        <div class="col-md-2">
+                            <input type="number" name="max" class="form-control" placeholder="허용인원" min="1"/>
+                        </div>
+                        <div class="col-md-3">
+                            <input type="password" name="password" class="form-control" placeholder="비밀번호(생략 시 공개방)" />
+                        </div>
+                        <div class="col-auto">
+                            <button type="submit" class="btn btn-outline-danger d-block"><i class="fa fa-commenting-o" aria-hidden="true"></i> 채팅방 생성</button>
+                        </div>
+                    </form>                    
+                </div>
+            </div>            
+        </div>
+    </div>
+{% endblock %}

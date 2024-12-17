@@ -1,0 +1,51 @@
+{% extends "templates/layout.njk" %}
+{% block style %}  
+{% endblock %}  
+{% block content %}
+  <main  class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+    <!-- content 영역 -->
+    <div class="container">
+      <h1>{{title}}</h1>
+      <div class="card">
+        <div class="card-header">Todo 수정</div>
+        <div class="card-body">
+          <form action="/todos/modify/{{todo._id}}" method="post">
+            <div class="mb-3">
+              <label for="title" class="form-label">할 일</label>
+              <textarea name="title" id="title" class="form-control" rows="5">{{todo.title}}</textarea>
+            </div>
+            <div class="mb-3 form-check">
+              <input
+                type="checkbox"
+                class="form-check-input"
+                id="important"
+                name="important"
+                value="true"
+                {{ 'checked' if todo.important else ''}}
+              />
+              <label class="form-check-label" for="important">중요</label>
+            </div>
+            <div class="mb-3 form-check">
+              <input
+                type="checkbox"
+                class="form-check-input"
+                id="completed"
+                name="completed"
+                value="true"
+                 {{ 'checked' if todo.completed else ''}}    
+              />
+              <label class="form-check-label" for="completed">완료</label>
+            </div>                     
+            <button class="btn btn-success" type="submit">수정</button>
+            <a class="btn btn-danger" href="/todos/remove/{{todo._id}}">삭제</a>
+            <a class="btn btn-primary" href="/todos">목록</a>
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+{% endblock %}
+
+{% block script %}
+  
+{% endblock %}

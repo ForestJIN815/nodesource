@@ -1,0 +1,93 @@
+{% extends "templates/layout.njk" %}
+{% block content %}
+<section class="message-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="chat-area">
+                    <!-- chat left -->
+                    <div class="chatlist">
+                        <div class="modal-dialog-scrollable">
+                            <div class="modal-content">
+                                <div class="chat-header mb-2">                                   
+                                    <h3 class="mb-2">{{title}}</h3> 
+                                    <a href="/" class="btn btn-sm btn-success">채팅방 나가기</a>                                         
+                                </div>
+                                <div class="chat-lists border-top">
+                                    <div class="tab-content" id="myTabContent">
+                                        <div class="tab-pane fade show active" id="Open" role="tabpanel" aria-labelledby="Open-tab">
+                                            <!-- chat-list -->
+                                            <div class="chat-list mt-3">
+                                                {# <div class="text-primary">
+                                                    #13458 님이 입장(퇴장)하셨습니다.
+                                                </div>  #}
+                                            </div>
+                                            <!-- chat-list -->
+                                        </div>                                       
+                                    </div>
+                                </div>
+                                <!-- chat-left -->                            
+                            </div>
+                        </div>
+                    </div>
+                    <!-- chatlist -->
+
+                    <!-- chatbox -->
+                    <div class="chatbox">
+                        <div class="modal-dialog-scrollable">
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    <div class="msg-body">
+                                        <ul>                                       
+                                            <li class="mine">
+                                                <p>Hey, Are you there?</p>
+                                                <span class="user">#20631</span>
+                                            </li>
+                                            <li class="other">
+                                                <p>yes!!</p>
+                                                <span class="user">#19631</span>
+                                            </li> 
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="send-box">
+                                <form action="" id="chat-form">
+                                    <input type="text" class="form-control" name="chat" aria-label="message…" placeholder="Write message…" />
+                                    <button type="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i> Send</button>
+                                </form>
+
+                                <div class="send-btns">
+                                    <div class="attach">
+                                        <div class="button-wrapper">
+                                            <span class="label">
+                                            <img
+                                                class="img-fluid"
+                                                src="https://mehedihtml.com/chatbox/assets/img/upload.svg"
+                                                alt="image title"
+                                            />
+                                            attached file </span
+                                            ><input
+                                            type="file"
+                                            name="upload"
+                                            id="upload"
+                                            class="upload-box"
+                                            placeholder="Upload File"
+                                            aria-label="Upload File"
+                                            />
+                                        </div>                                   
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+{% block script %}  
+   
+{% endblock %}
