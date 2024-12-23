@@ -39,14 +39,14 @@
                                 <div class="modal-body">
                                     <div class="msg-body">
                                         <ul>                                       
-                                            <li class="mine">
+                                            {# <li class="mine">
                                                 <p>Hey, Are you there?</p>
                                                 <span class="user">#20631</span>
                                             </li>
                                             <li class="other">
                                                 <p>yes!!</p>
                                                 <span class="user">#19631</span>
-                                            </li> 
+                                            </li>  #}
                                         </ul>
                                     </div>
                                 </div>
@@ -89,5 +89,11 @@
 </section>
 {% endblock %}
 {% block script %}  
-   
+   <script>
+    const socket = io.connect("ws://localhost:8005/chat",{path:'/socket.io'});
+    socket.emit('join', new URL(location).pathname.split("/").at(-1));
+    const roomId = "{{room._id}}";
+    const user = "{{user}}";
+  </script>
+  <script src="/js/chat.js"></script>
 {% endblock %}
